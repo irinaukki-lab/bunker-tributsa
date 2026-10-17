@@ -31,6 +31,24 @@
     revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
+  /* ---------- Строки эпиграфа в блоке 9: проявляются по одной при прокрутке ---------- */
+  document.documentElement.classList.add("js");
+  var epiLines = document.querySelectorAll(".epigraph--memory .line, .epigraph--memory figcaption");
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var queue = 0;
+    var lio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        lio.unobserve(e.target);
+        // строки, попавшие в кадр одновременно, всё равно появляются друг за другом
+        setTimeout(function () { e.target.classList.add("is-visible"); queue = Math.max(0, queue - 1); }, queue++ * 260);
+      });
+    }, { rootMargin: "0px 0px -18% 0px" });
+    epiLines.forEach(function (el) { lio.observe(el); });
+  } else {
+    epiLines.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
   /* ---------- Телеграфная лента: печать текста ---------- */
   var tape = document.querySelector("[data-typewriter]");
   if (tape && !reduceMotion && "IntersectionObserver" in window) {
@@ -222,6 +240,16 @@
     }
   }
 
+  /* ---------- Обрыв кабеля: связь восстанавливается по мере чтения блока 9 ---------- */
+  var cableBreak = document.querySelector(".cable-break");
+  function updateCableBreak() {
+    var r = cableBreak.getBoundingClientRect(), vh = window.innerHeight;
+    // 0 — обрыв у нижнего края экрана, 1 — поднялся на треть экрана выше верхнего края
+    var k = reduceMotion ? 1 : ease(seg((vh - r.top) / (vh * 1.1), 0.15, 1));
+    cableBreak.style.setProperty("--repair", k.toFixed(3));
+    cableBreak.classList.toggle("is-repaired", k > 0.98);
+  }
+
   /* ---------- Навигация и индикатор глубины ---------- */
   var nav = document.querySelector(".nav");
   var sappers = document.getElementById("sappers");
@@ -238,6 +266,7 @@
     if (sappers) document.body.classList.toggle("is-memory", sappers.getBoundingClientRect().top < window.innerHeight * 0.6);
 
     if (descent && descent.getBoundingClientRect().bottom > 0 && descent.getBoundingClientRect().top < window.innerHeight) updateDescent(t);
+    if (cableBreak) updateCableBreak();
     if (lh && lh.getBoundingClientRect().bottom > 0 && lh.getBoundingClientRect().top < window.innerHeight) updateLighthouse();
 
     for (var i = 0; i < systems.length; i++) if (systems[i].visible) systems[i].step(t);

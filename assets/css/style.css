@@ -99,7 +99,7 @@ figure { margin: 0; }
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: url("../../media/kabel_1.png") center / cover no-repeat;
+  background: url("../media/kabel_1.webp") center / cover no-repeat;
   filter: grayscale(1) contrast(1.1);
   opacity: 0.05;
   pointer-events: none;
@@ -205,7 +205,7 @@ body.is-memory .site-cables { opacity: 0; }
   position: relative;
   height: 120px;
   overflow: hidden;
-  background: url("../../media/kabel_2.png") center / cover no-repeat;
+  background: url("../media/kabel_2.webp") center / cover no-repeat;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 40%, #000 60%, transparent);
   mask-image: linear-gradient(to bottom, transparent, #000 40%, #000 60%, transparent);
 }
@@ -240,7 +240,7 @@ body.is-memory .site-cables { opacity: 0; }
 @keyframes breathe { from { transform: scale(1); } to { transform: scale(1.06); } }
 .hero__cables {
   position: absolute; inset: 0; z-index: -1;
-  background: url("../../media/kabel_1.png") center bottom / cover no-repeat;
+  background: url("../media/kabel_1.webp") center bottom / cover no-repeat;
   filter: grayscale(1);
   opacity: 0.08;
   mix-blend-mode: screen;
@@ -565,3 +565,30 @@ body.is-memory .site-cables { opacity: 0; }
 @media (max-aspect-ratio: 1/1) {
   .lighthouse__frame { transform: translate(-63.8%, -50%); }
 }
+
+/* ---------- Обрыв кабеля между блоками 8 и 9 ---------- */
+.cable-break { position: relative; height: 160px; margin-top: -40px; }
+.cable-break svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.cable-break path { fill: none; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+.cable-break__left { stroke: rgba(214, 210, 202, 0.45); stroke-width: 1.6; }
+.cable-break__right { stroke: rgba(214, 210, 202, 0.18); stroke-width: 1.6; stroke-dasharray: 4 8; transition: stroke 0.6s; }
+.cable-break__fray { stroke: rgba(214, 210, 202, 0.4); stroke-width: 1; }
+.cable-break__bridge { stroke: var(--amber); stroke-width: 2; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--repair, 0)); filter: drop-shadow(0 0 4px rgba(232, 168, 76, 0.8)); }
+.cable-break.is-repaired .cable-break__right { stroke: rgba(232, 168, 76, 0.45); stroke-dasharray: none; }
+.cable-break__spark { /* искрит, пока связь не восстановлена */
+  position: absolute; left: 46.1%; top: 51%;
+  width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%;
+  background: #ffe2b0; box-shadow: 0 0 12px 4px rgba(232, 168, 76, 0.7);
+  opacity: calc(1 - var(--repair, 0));
+  animation: spark 1.3s steps(2) infinite;
+}
+@keyframes spark { 50% { transform: scale(0.4); box-shadow: 0 0 4px 1px rgba(232, 168, 76, 0.4); } }
+
+/* ---------- Строки Высоцкого проявляются по одной ---------- */
+.epigraph--memory .line { display: block; }
+.js .epigraph--memory .line, .js .epigraph--memory figcaption { opacity: 0; filter: blur(3px); transform: translateY(8px); transition: opacity 1.1s ease, filter 1.1s ease, transform 1.1s ease; }
+.js .epigraph--memory .line.is-visible, .js .epigraph--memory figcaption.is-visible { opacity: 1; filter: none; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .epigraph--memory .line, .js .epigraph--memory figcaption { opacity: 1; filter: none; transform: none; }
+}
+.sappers__bg { -webkit-mask-image: linear-gradient(to bottom, transparent, #000 160px); mask-image: linear-gradient(to bottom, transparent, #000 160px); }

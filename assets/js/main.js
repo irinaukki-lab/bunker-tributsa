@@ -224,6 +224,7 @@
 
   /* ---------- Навигация и индикатор глубины ---------- */
   var nav = document.querySelector(".nav");
+  var sappers = document.getElementById("sappers");
   var root = document.documentElement;
   var lastY = window.scrollY, lastDelta = 0;
 
@@ -233,6 +234,8 @@
     var max = root.scrollHeight - window.innerHeight;
     root.style.setProperty("--depth", max > 0 ? (y / max).toFixed(4) : 0);
     nav.classList.toggle("is-scrolled", y > 40);
+    // с блока «Сапёры памяти» кабельный фон уходит
+    if (sappers) document.body.classList.toggle("is-memory", sappers.getBoundingClientRect().top < window.innerHeight * 0.6);
 
     if (descent && descent.getBoundingClientRect().bottom > 0 && descent.getBoundingClientRect().top < window.innerHeight) updateDescent(t);
     if (lh && lh.getBoundingClientRect().bottom > 0 && lh.getBoundingClientRect().top < window.innerHeight) updateLighthouse();

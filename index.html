@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Бункер Трибуца — документальный VR-проект</title>
+  <meta name="description" content="«Бункер Трибуца» — документальный VR-проект СПбГИКиТ и Музея обороны и блокады Ленинграда о событиях 22 октября 1942 года.">
+  <meta name="theme-color" content="#07090c">
+  <meta property="og:title" content="Бункер Трибуца">
+  <meta property="og:description" content="Документальный VR-проект / 20–25 мин">
+  <meta property="og:image" content="media/background_main.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Глобальные слои: мотив кабелей, плёнка, виньетка -->
+  <div class="site-cables" aria-hidden="true"></div>
+  <div class="film film--global" aria-hidden="true"><i class="film__grain"></i><i class="film__scratch"></i><i class="film__scratch film__scratch--2"></i></div>
+
+  <!-- Кабель-индикатор глубины -->
+  <div class="depth" aria-hidden="true"><span class="depth__line"></span><span class="depth__dot"></span></div>
+
+  <header class="nav" id="top">
+    <a class="nav__brand" href="#hero">Бункер Трибуца</a>
+    <nav class="nav__links" aria-label="Разделы">
+      <a href="#bunker">Бункер</a>
+      <a href="#heroes">Герои</a>
+      <a href="#suho">Остров Сухо</a>
+      <a href="#media">Медиа</a>
+      <a href="#team">Команда</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. ГЕРОЙ-БЛОК -->
+    <section class="hero" id="hero">
+      <div class="hero__bg film-bw" style="background-image:url('media/background_main.jpg')" aria-hidden="true"></div>
+      <div class="hero__cables" aria-hidden="true"></div>
+      <canvas class="particles" data-particles="lights" aria-hidden="true"></canvas>
+      <div class="fog fog--edges" aria-hidden="true"></div>
+      <div class="film" aria-hidden="true"><i class="film__grain"></i><i class="film__scratch"></i></div>
+
+      <div class="hero__inner">
+        <div class="hero__head">
+          <h1 class="hero__title">Бункер Трибуца</h1>
+          <p class="hero__subtitle">Документальный VR-проект / 20–25 мин</p>
+        </div>
+
+        <div class="hero__video reveal">
+          <video controls playsinline preload="none" poster="assets/img/trailer-poster.jpg">
+            <source src="media/trailer.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео. <a href="media/trailer.mp4">Скачать трейлер</a>.
+          </video>
+        </div>
+
+        <p class="hero__annotation reveal">22 октября 1942 года. В блокадном Ленинграде, в секретном бункере штаба Краснознаменного Балтийского флота вы становитесь свидетелем напряжённой подготовки к операции по отражению высадки немецкого десанта на остров Сухо. Исследуя пространство бункера, взаимодействуя с предметами и погружаясь в воспоминания офицеров, вы раскрываете тайны военной стратегии и человеческих судеб. Финальная реконструкция событий на острове заставит вас пережить драматизм тех дней и осознать цену каждого решения, принятого в условиях войны.</p>
+
+        <figure class="telegraph reveal">
+          <blockquote class="telegraph__tape" data-typewriter>Сюда к нам по телефонам, телеграфной связи Бодо, по уложенным водолазами на дне Финского залива и Ладожского озера кабелям поступали приказы, распоряжения, вызовы из Ставки Верховного Главнокомандования, Военного совета Ленинградского фронта, которому флот был оперативно подчинен. Отсюда осуществлялась связь с Кронштадтом, Малой землей южнее Ораниенбаума, КП штаба балтийских летчиков, с командованием Ладожской военной флотилии — передовыми позициями на островах, — словом, со всем разбросанным и сложным хозяйством Балтийского флота.</blockquote>
+          <figcaption class="telegraph__sign">— Адмирал В. Ф. Трибуц</figcaption>
+        </figure>
+
+        <figure class="epigraph reveal">
+          <blockquote>
+            <p>Зарыты в нашу память на века<br>И даты, и события, и лица,<br>А память — как колодец глубока.<br>Попробуй заглянуть — наверняка<br>Лицо — и то — неясно отразится.</p>
+            <p>Разглядеть, что истинно, что ложно<br>Может только беспристрастный суд:<br>Осторожно с прошлым, осторожно —<br>Не разбейте глиняный сосуд!</p>
+            <p>Иногда как-то вдруг вспоминается<br>Из войны пара фраз —<br>Например, что сапер ошибается<br>Только раз…</p>
+          </blockquote>
+          <figcaption>Владимир Высоцкий</figcaption>
+        </figure>
+
+        <ul class="partners reveal" aria-label="Партнёры проекта">
+          <li><img src="media/logo-kafedra.png" alt="Кафедра режиссуры цифровых медиа и анимационного фильма СПбГИКиТ" title="Кафедра режиссуры цифровых медиа и анимационного фильма СПбГИКиТ" width="188" height="92"></li>
+          <li><img src="media/logo-gikit.png" alt="Санкт-Петербургский государственный институт кино и телевидения (СПбГИКиТ)" title="Санкт-Петербургский государственный институт кино и телевидения (СПбГИКиТ)" width="264" height="114"></li>
+          <li><img src="media/logo-museum.png" alt="Государственный мемориальный музей обороны и блокады Ленинграда" title="Государственный мемориальный музей обороны и блокады Ленинграда" width="233" height="98"></li>
+        </ul>
+      </div>
+      <a class="hero__scroll" href="#descent" aria-label="Начать спуск"><span></span></a>
+    </section>
+
+    <!-- 2. СПУСК -->
+    <section class="descent" id="descent" aria-label="Спуск: от поверхности моря ко дну">
+      <div class="descent__stage">
+        <div class="descent__frame descent__frame--surface">
+          <img class="layer layer--sky" src="media/background_1_sky.png" alt="" decoding="async">
+          <img class="layer layer--sea" src="media/background_1_sea.png" alt="" decoding="async">
+          <img class="layer layer--mo" src="media/mo.png" alt="" decoding="async">
+        </div>
+        <div class="descent__frame descent__frame--deep">
+          <img class="layer layer--water" src="media/background_2_water.png" alt="" loading="lazy" decoding="async">
+          <img class="layer layer--mina2" src="media/mina_2.png" alt="" loading="lazy" decoding="async">
+          <img class="layer layer--lodka" src="media/lodka.png" alt="" loading="lazy" decoding="async">
+          <img class="layer layer--mina1" src="media/mina_1.png" alt="" loading="lazy" decoding="async">
+          <img class="layer layer--seabed" src="media/background_2_seabed.png" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="descent__surface-glow" aria-hidden="true"></div>
+        <div class="fog fog--descent" aria-hidden="true"></div>
+        <canvas class="particles" data-particles="bubbles" aria-hidden="true"></canvas>
+        <div class="film film--strong" aria-hidden="true"><i class="film__grain"></i><i class="film__scratch"></i><i class="film__scratch film__scratch--2"></i><i class="film__flicker"></i></div>
+      </div>
+    </section>
+
+    <div class="cable-divider" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 70 C 240 20, 420 110, 720 60 S 1200 20, 1440 80"/><path class="alt" d="M0 50 C 300 100, 520 10, 760 70 S 1180 110, 1440 40"/></svg></div>
+
+    <!-- 3. БУНКЕР -->
+    <section class="section bunker" id="bunker">
+      <div class="container">
+        <h2 class="section__title reveal">Реконструкция бункера</h2>
+        <figure class="bunker__hero reveal">
+          <img class="sepia" src="media/bunker_0.png" alt="Строительство бункера адмирала Трибуца" loading="lazy" width="1920" height="1211">
+          <figcaption>Строительство бункера адмирала Трибуца</figcaption>
+        </figure>
+        <p class="lead reveal">Петроградская сторона. Территория ЛЭТИ. Здесь, под землёй, осенью 1942 года был построен бункер для штаба Балтийского флота. Его стены — из бронированных плит, привезённых с артиллерийского полигона; на них до сих пор видны следы от снарядов. После войны бункер был заброшен. В 2000-х его нашли энтузиасты — и теперь он станет филиалом Музея обороны и блокады Ленинграда. Каждое помещение воссоздано нашей командой по архивным документам и чертежам.</p>
+
+        <div class="gallery">
+          <figure class="gallery__item reveal" tabindex="0">
+            <img src="media/bunker_1.png" alt="Рендер бункера: интерьер" loading="lazy" width="1856" height="1019">
+            <figcaption>Мы хотели не просто сделать 3D-модель исторического здания. Нам было важно, чтобы вы могли „потрогать“ историю: открыть дверь, взять в руки документ, услышать воспоминания.</figcaption>
+          </figure>
+          <figure class="gallery__item reveal" tabindex="0">
+            <img src="media/bunker_2.png" alt="Рендер бункера: тёплые выцветшие тона" loading="lazy" width="1856" height="1019">
+            <figcaption>Тёплые, выцветшие тона создают эффект „старой фотографии“, к которой хочется прикоснуться. Это ощущение истории, которую можно потрогать, и есть „тактильность“ в VR.</figcaption>
+          </figure>
+          <figure class="gallery__item reveal" tabindex="0">
+            <img src="media/bunker_3.png" alt="Рендер бункера: документы" loading="lazy" width="1856" height="1019">
+            <figcaption>Мы использовали реальные документы, фотографии, мемуары.</figcaption>
+          </figure>
+          <figure class="gallery__item reveal" tabindex="0">
+            <img src="media/bunker_4.png" alt="Рендер бункера: военный совет" loading="lazy" width="1856" height="1019">
+            <figcaption>Вы становитесь свидетелем военного совета.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="cable-divider" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 40 C 260 100, 480 20, 720 70 S 1160 110, 1440 50"/><path class="alt" d="M0 90 C 200 40, 560 100, 820 50 S 1240 30, 1440 90"/></svg></div>
+
+    <!-- 4. ГЕРОИ -->
+    <section class="section heroes" id="heroes">
+      <div class="container">
+        <h2 class="section__title reveal">Главные герои проекта</h2>
+        <p class="lead lead--center reveal">Нам было важно показать не просто карты и приказы, а живых людей.</p>
+
+        <div class="heroes__grid">
+          <article class="person reveal">
+            <img class="person__photo" src="media/photo_1.png" alt="Адмирал Владимир Филиппович Трибуц" loading="lazy" width="250" height="350">
+            <p class="person__rank">Адмирал</p>
+            <h3 class="person__name">Владимир Филиппович Трибуц</h3>
+            <p class="person__short">Командующий Краснознаменным Балтийским флотом. В 38 лет возглавил флот — один из самых молодых командующих в истории СССР. Начинал фельдшером на кораблях Волжско-Каспийской флотилии.</p>
+            <button class="btn btn--ghost person__more" type="button">Подробнее</button>
+            <div class="person__bio" hidden><p>Владимир Филиппович Трибуц (1900–1977) родился в Петербурге в семье крестьянина. В 1918 году вступил в Красный флот, служил фельдшером на кораблях Волжско-Каспийской флотилии. Окончил Военно-морское училище имени Фрунзе (1926) и Военно-морскую академию (1932). Командовал эсминцем „Яков Свердлов“, с 1938 года — начальник штаба, а с апреля 1939 года — командующий Балтийским флотом. В августе 1941 года организовал и возглавил переход кораблей из Таллина в Кронштадт сквозь минные поля и атаки авиации противника. Участник обороны Ленинграда, прорыва блокады, освобождения Прибалтики. Доктор исторических наук, автор книг „Балтийцы вступают в бой“ и „Балтийцы сражаются“. Похоронен в Москве.</p></div>
+          </article>
+
+          <article class="person reveal">
+            <img class="person__photo" src="media/photo_2.png" alt="Адмирал Юрий Александрович Пантелеев" loading="lazy" width="250" height="350">
+            <p class="person__rank">Адмирал</p>
+            <h3 class="person__name">Юрий Александрович Пантелеев</h3>
+            <p class="person__short">Начальник штаба Балтийского флота. Из семьи кинематографистов, спортсмен, писатель. По его мемуарам воссоздана атмосфера бункера.</p>
+            <button class="btn btn--ghost person__more" type="button">Подробнее</button>
+            <div class="person__bio" hidden><p>Юрий Александрович Пантелеев (1901–1983) родился в Петербурге в семье актёра и режиссёра „Ленфильма“. На флоте с 1918 года, участник Гражданской войны. Окончил Военно-морскую академию (1933). Служил на Черноморском флоте, командовал соединениями подводных лодок. В 1939–1941 годах — начальник штаба Краснознаменного Балтийского флота. В годы войны командовал морской обороной Ленинграда, Волжской и Беломорской флотилиями. После войны — начальник Военно-морской академии, командующий Тихоокеанским флотом. Адмирал (1953), профессор (1962). Мастер спорта СССР по парусному спорту (1958). Автор мемуаров „Морской фронт“ и „Полвека на флоте“.</p></div>
+          </article>
+
+          <article class="person reveal">
+            <img class="person__photo" src="media/photo_3.png" alt="Лейтенант Алексей Алексеевич Лебедев" loading="lazy" width="250" height="350">
+            <p class="person__rank">Лейтенант</p>
+            <h3 class="person__name">Алексей Алексеевич Лебедев</h3>
+            <p class="person__short">Поэт-маринист, штурман подлодки „Л-2“. Член Союза писателей СССР. Погиб 14 ноября 1941 года, отдав спасательный жилет товарищу.</p>
+            <button class="btn btn--ghost person__more" type="button">Подробнее</button>
+            <div class="person__bio" hidden><p>Алексей Алексеевич Лебедев (1912–1941) родился в Суздале, в семье юриста и учительницы. Работал юнгой и матросом на судах „Севрыбтреста“, затем поступил в Ленинградское высшее военно-морское училище имени Фрунзе. Первые стихи опубликовал в 1934 году во флотской газете „Красный Балтийский флот“. В 1939 году принят в Союз писателей СССР, издал сборники „Кронштадт“ (1939) и „Лирика моря“ (1940). Служил штурманом на подводной лодке „Л-2“ („Сталинец“). В ночь с 13 на 14 ноября 1941 года лодка подорвалась на минах у острова Кери. По свидетельству выживших, Лебедев бросил тонущему товарищу свой спасательный жилет. Из всего экипажа спаслись только три человека.</p></div>
+          </article>
+
+          <article class="person reveal">
+            <img class="person__photo" src="media/photo_4.png" alt="Старший лейтенант Иван Константинович Гусев" loading="lazy" width="250" height="350">
+            <p class="person__rank">Старший лейтенант</p>
+            <h3 class="person__name">Иван Константинович Гусев</h3>
+            <p class="person__short">Комендант острова Сухо. 98 моряков под его командованием построили батарею на голом камне. 22 октября 1942 года отразил десант, получил ранения, но не оставил командование.</p>
+            <button class="btn btn--ghost person__more" type="button">Подробнее</button>
+            <div class="person__bio" hidden><p>Иван Константинович Гусев (1905–1966) с начала войны служил артиллеристом на кронштадтских фортах. Летом 1942 года назначен командиром батареи и комендантом острова Сухо на Ладожском озере. Гарнизон из 98 моряков за тридцать дней построил артиллерийскую батарею на голом камне, вгрызаясь в гранитную толщу. 22 октября 1942 года, когда немецко-финско-итальянская флотилия попыталась захватить остров, Гусев руководил боем. Получил несколько ранений, в том числе в живот, но продолжал командовать. Моряки под его командованием сбросили десант в воду. За этот бой Гусев был представлен к ордену Ленина.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="modal" id="person-modal" aria-labelledby="modal-name">
+      <div class="modal__body">
+        <img class="modal__photo" src="" alt="">
+        <div class="modal__text">
+          <p class="modal__rank"></p>
+          <h3 class="modal__name" id="modal-name"></h3>
+          <div class="modal__bio"></div>
+          <button class="btn modal__close" type="button">Закрыть</button>
+        </div>
+      </div>
+    </dialog>
+
+    <div class="cable-divider" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 60 C 300 10, 500 110, 760 50 S 1180 20, 1440 70"/><path class="alt" d="M0 80 C 220 30, 540 90, 700 40 S 1260 100, 1440 30"/></svg></div>
+
+    <!-- 5. ОСТРОВ СУХО -->
+    <section class="suho" id="suho">
+      <div class="container section">
+        <h2 class="section__title reveal">Маяк на острове Сухо</h2>
+        <p class="lead reveal">22 октября 1942 года в бункере раздался звонок: немецкий десант высадился на остров Сухо. Это было одно из крупнейших морских сражений Великой Отечественной войны на Ладоге. В проекте сцена сражения реализована в стиле кинохроники: чёрно-белая плёнка, звуки боя. Но вот занимается рассвет, небо окрашивается красным и загорается маяк — символ надежды.</p>
+      </div>
+
+      <div class="lighthouse" aria-label="Маяк загорается по мере прокрутки">
+        <div class="lighthouse__stage">
+          <div class="lighthouse__frame">
+            <img class="lighthouse__bw" src="media/lighthouse_1.png" alt="Маяк на острове Сухо в тумане — кадр из проекта" loading="lazy">
+            <img class="lighthouse__color" src="media/lighthouse_2.png" alt="" loading="lazy">
+            <div class="lighthouse__glow" aria-hidden="true"></div>
+            <div class="lighthouse__beam" aria-hidden="true"></div>
+          </div>
+          <div class="fog fog--amber" aria-hidden="true"></div>
+          <canvas class="particles" data-particles="sparks" aria-hidden="true"></canvas>
+          <div class="film" aria-hidden="true"><i class="film__grain"></i><i class="film__scratch"></i></div>
+        </div>
+      </div>
+
+      <div class="container section">
+        <div class="fact">
+          <figure class="fact__photo reveal">
+            <img class="film-bw" src="media/flot.png" alt="Ладожская военная флотилия" loading="lazy" width="800" height="534">
+            <figcaption>Ладожская военная флотилия</figcaption>
+          </figure>
+          <div class="fact__text reveal">
+            <p class="fact__label">Телеграмма</p>
+            <p>Враг был замечен на тральщике ТЩ-100 и катере МО-171. Командир тральщика передал открытым текстом в штаб Ладожской военной флотилии: <span class="mono">„Немцы высаживают десант на острове Сухо. Веду бой. Старший лейтенант Петр Каргин“</span>. На помощь защитникам вышли восемь кораблей Ладожской военной флотилии под командованием капитана 1-го ранга Николая Озаровского. В воздух была поднята штурмовая и истребительная авиация трёх фронтов и Балтийского флота. В бою участвовали советские малые катера типа МО-4 („морские охотники“, „мошки“).</p>
+          </div>
+        </div>
+
+        <div class="strip" role="list" aria-label="Кадры из проекта: остров Сухо">
+          <figure class="strip__item reveal" role="listitem"><img src="media/suho_1.png" alt="Остров Сухо с маяком" loading="lazy" width="1856" height="1019"></figure>
+          <figure class="strip__item reveal" role="listitem"><img src="media/suho_2.png" alt="Газета «Герои обороны маяка Сухо»" loading="lazy" width="1856" height="1019"></figure>
+          <figure class="strip__item reveal" role="listitem"><img src="media/suho_3.png" alt="Защитники острова Сухо" loading="lazy" width="1856" height="1019"></figure>
+          <figure class="strip__item reveal" role="listitem"><img src="media/suho_4.png" alt="Маяк в морской дымке" loading="lazy" width="1856" height="1019"></figure>
+          <figure class="strip__item reveal" role="listitem"><img src="media/suho_5.png" alt="Маяк и огни на берегу" loading="lazy" width="1856" height="932"></figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="cable-divider" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 50 C 280 110, 460 20, 740 60 S 1220 100, 1440 40"/><path class="alt" d="M0 70 C 240 30, 600 110, 860 60 S 1200 10, 1440 80"/></svg></div>
+
+    <!-- 6. ФЕСТИВАЛИ И НАГРАДЫ -->
+    <section class="section awards" id="awards">
+      <div class="container">
+        <h2 class="section__title reveal">Фестивали и награды</h2>
+        <ul class="awards__grid">
+          <li class="award reveal">
+            <div class="award__logo"><img src="media/logo-dmaf.png" alt="Digital Media Art Festival (DMAF)" loading="lazy" width="342" height="364"></div>
+            <p class="award__year">2024</p>
+            <p class="award__text">Гран-при Молодёжного фестиваля Digital Media Art Festival (DMAF, 2024)</p>
+          </li>
+          <li class="award reveal">
+            <div class="award__logo"><img src="media/logo-dk.png" alt="Медиа-форум «Диалог культур»" loading="lazy" width="402" height="162"></div>
+            <p class="award__year">2025</p>
+            <p class="award__text">Участник XIX Международного медиа-форума «Диалог культур» (2025)</p>
+          </li>
+          <li class="award reveal">
+            <div class="award__logo"><img src="media/logo-ross.png" alt="Конкурс «Я живу в России»" loading="lazy" width="287" height="124"></div>
+            <p class="award__year">2025</p>
+            <p class="award__text">Победитель Международного мультимедийного конкурса «Я живу в России» в специальной номинации (2025)</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. МЕДИА -->
+    <section class="section media" id="media">
+      <div class="container">
+        <h2 class="section__title reveal">Мы в медиа</h2>
+        <div class="media__grid">
+          <article class="mcard reveal">
+            <img class="mcard__img" src="media/media_1.png" alt="" loading="lazy" width="800" height="534">
+            <div class="mcard__body">
+              <h3 class="mcard__title">СПбГИКиТ</h3>
+              <p>Сегодня петербуржцам и гостям города представили уникальный совместный проект студентов ГИКиТ и Музея обороны и блокады Ленинграда — „Бункер Трибуца“.</p>
+              <a class="btn" href="https://vk.ru/multimediaspbgikit?z=video-32285803_456240303%2Fa7147255e59b6eef57" target="_blank" rel="noopener noreferrer">Смотреть в VK</a>
+            </div>
+          </article>
+          <article class="mcard reveal">
+            <img class="mcard__img" src="media/media_2.png" alt="" loading="lazy" width="800" height="534">
+            <div class="mcard__body">
+              <h3 class="mcard__title">Программа «Объясним. Про» на ТВ-канале «Санкт-Петербург»</h3>
+              <p>Ирина Литовская рассказала, как возникла идея создать первый в России интерактивный документальный VR-проект о Великой Отечественной войне силами студентов.</p>
+              <a class="btn" href="https://vk.ru/multimediaspbgikit?z=video-103738883_456239372%2F4d42e4deab7269ac72" target="_blank" rel="noopener noreferrer">Смотреть в VK</a>
+            </div>
+          </article>
+          <article class="mcard reveal">
+            <img class="mcard__img" src="media/media_3.png" alt="" loading="lazy" width="800" height="534">
+            <div class="mcard__body">
+              <h3 class="mcard__title">Репортаж на Первом канале</h3>
+              <p>В эфире Первого канала вышел репортаж о VR-проекте „Бункер Трибуца“ — уникальной VR-экскурсии, погружающей пользователя в детализированную 3D-модель бункера адмирала Трибуца.</p>
+              <a class="btn" href="https://vk.ru/multimediaspbgikit?z=video-32285803_456240222%2F858a2a5f0581150942" target="_blank" rel="noopener noreferrer">Смотреть в VK</a>
+            </div>
+          </article>
+          <article class="mcard reveal">
+            <img class="mcard__img" src="media/media_4.png" alt="" loading="lazy" width="800" height="534">
+            <div class="mcard__body">
+              <h3 class="mcard__title">«Культура Петербурга»</h3>
+              <p>В Санкт-Петербургском государственном институте кино и телевидения представлен первый в России интерактивный сторителлинговый документальный VR-проект «Бункер Трибуца», посвященный событиям блокадного Ленинграда.</p>
+              <a class="btn" href="https://spbcult.ru/news/anonsy/pervyy-v-rossii-interaktivnyy-storitellingovyy-vr-proekt-bunker-tributsa-pogruzhenie-v-istoriyu-blok/" target="_blank" rel="noopener noreferrer">Читать на сайте портала</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="cable-divider" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 80 C 200 20, 520 100, 720 50 S 1240 90, 1440 30"/><path class="alt" d="M0 40 C 320 90, 480 30, 800 80 S 1160 30, 1440 70"/></svg></div>
+
+    <!-- 8. СОЗДАТЕЛИ -->
+    <section class="section team" id="team">
+      <div class="container">
+        <h2 class="section__title reveal">Команда проекта</h2>
+        <div class="team__photos">
+          <img class="reveal" src="media/kom_1.png" alt="Команда проекта за работой" loading="lazy" width="909" height="687">
+          <img class="reveal" src="media/kom_2.png" alt="Команда проекта на презентации" loading="lazy" width="909" height="687">
+          <img class="reveal" src="media/kom_3.png" alt="Показ проекта" loading="lazy" width="909" height="687">
+          <img class="reveal" src="media/kom_4.png" alt="Интервью с руководителем проекта" loading="lazy" width="909" height="687">
+        </div>
+
+        <div class="team__list reveal">
+          <details open>
+            <summary>Руководство</summary>
+            <dl>
+              <dt>Художественный руководитель и режиссёр-постановщик</dt><dd>Ирина Литовская</dd>
+              <dt>Продюсеры</dt><dd>Ирина Литовская, Кирилл Копырин</dd>
+            </dl>
+          </details>
+          <details>
+            <summary>Режиссура и сценарий</summary>
+            <dl>
+              <dt>Режиссёры локаций</dt><dd>Полина Абросимова, Анастасия Наумова, Алиса Ледовская, София Боркова, Дарья Михеева, Виктор Красненков, Камила Галеева, Лина Данилова, Ралина Хуснутдинова</dd>
+              <dt>Сценаристы</dt><dd>Ирина Литовская, София Боркова, Алиса Ледовская, Полина Абросимова, Дарья Михеева, Виктор Красненков, Ралина Хуснутдинова</dd>
+            </dl>
+          </details>
+          <details>
+            <summary>Арт, 3D и анимация</summary>
+            <dl>
+              <dt>Арт-директор</dt><dd>Дарья Михеева</dd>
+              <dt>3D-моделлеры и художники</dt><dd>Дарья Михеева, Михаил Михеев</dd>
+              <dt>Художник по персонажам</dt><dd>Дарья Михеева</dd>
+              <dt>Художники по окружению</dt><dd>Дарья Михеева, Диана Теслюк, Арсений Варганов</dd>
+              <dt>Аниматоры (3D и 2D)</dt><dd>Дарья Михеева, Алиса Ледовская</dd>
+            </dl>
+          </details>
+          <details>
+            <summary>Звук</summary>
+            <dl>
+              <dt>Звукорежиссёры</dt><dd>Антонс Заматайс (супервайзер), Адель Тунгушбаев, Евгения Белюкова, Валерия Дмитриева, Мария Сорокина, Кирилл Сидоров, Алексей Поляков</dd>
+              <dt>Саунд-дизайн</dt><dd>Ирина Литовская, Виктор Красненков</dd>
+            </dl>
+          </details>
+          <details>
+            <summary>Разработка, VFX и дизайн</summary>
+            <dl>
+              <dt>VR-разработка</dt><dd>Арсений Варганов, Виктор Красненков</dd>
+              <dt>Дизайнер интерфейсов (UI/UX)</dt><dd>Дарья Михеева</dd>
+              <dt>Специалисты по VFX</dt><dd>Дарья Михеева, Виктор Красненков, Диана Теслюк, Полина Абросимова, Анастасия Наумова, Ралина Хуснутдинова</dd>
+              <dt>Контент-дизайн</dt><dd>София Боркова, Полина Абросимова, Камила Галеева, Лина Данилова</dd>
+            </dl>
+          </details>
+          <details>
+            <summary>Научный консультант</summary>
+            <dl>
+              <dt>Научный консультант</dt><dd>Государственный мемориальный музей обороны и блокады Ленинграда</dd>
+            </dl>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. САПЁРЫ ПАМЯТИ -->
+    <section class="section sappers" id="sappers">
+      <div class="sappers__bg" aria-hidden="true"></div>
+      <canvas class="particles" data-particles="dust" aria-hidden="true"></canvas>
+      <div class="fog fog--soft" aria-hidden="true"></div>
+      <div class="film" aria-hidden="true"><i class="film__grain"></i></div>
+      <div class="container sappers__inner">
+        <h2 class="section__title reveal">Сапёры памяти — наша миссия</h2>
+        <blockquote class="sappers__quote reveal">«С памятью нужно обращаться осторожно — как сапёры с миной: одно неверное движение, и история утрачена навсегда. В нашем проекте мы предлагаем пользователю бережно извлечь из забвения утраченные имена и судьбы, пронести их сквозь время — и сделать общим достоянием».</blockquote>
+        <div class="sappers__row">
+          <p class="reveal">Вдохновлённый стихотворением Владимира Высоцкого „Зарыты в нашу память на века…“, проект выстраивает нарративную арку от забвения к восстановлению исторической памяти. Путешествие начинается в метафорическом „Колодце памяти“ — подводном, призрачном пространстве, где прошлое ещё не обрело формы. Затем пользователь попадает в исторически точную 3D-реконструкцию бункера, где через взаимодействие с документами, голосами и личными историями он постепенно собирает „артефакты памяти“. Кульминация — полное погружение в битву за остров Сухо в формате видео-360°, за которым следует пространство тишины и осмысления. Финал — маяк на закате и голос Высоцкого: память здесь уже не архив, а прожитый опыт как ориентир для осмысленного существования в настоящем.</p>
+          <figure class="reveal">
+            <img src="media/muz_1.png" alt="Кадр из проекта с музейной инсталляцией" loading="lazy" width="1856" height="1019">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="cable-divider" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 60 C 260 20, 520 100, 720 60 S 1180 20, 1440 60"/><path class="alt" d="M0 60 C 260 100, 520 20, 720 60 S 1180 100, 1440 60"/></svg></div>
+
+    <!-- 10. СВЯЗАТЬСЯ С НАМИ -->
+    <section class="section contact" id="contact">
+      <div class="container contact__inner">
+        <h2 class="section__title reveal">Связаться с нами</h2>
+        <p class="lead lead--center reveal">По вопросам сотрудничества, показов и интервью:</p>
+        <a class="contact__vk reveal" href="https://vk.ru/club242009498" target="_blank" rel="noopener noreferrer">vk.ru/club242009498</a>
+        <a class="btn btn--cta reveal" href="https://vk.ru/club242009498" target="_blank" rel="noopener noreferrer">Пройти путь минёров памяти</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© Бункер Трибуца · СПбГИКиТ · Государственный мемориальный музей обороны и блокады Ленинграда</p>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

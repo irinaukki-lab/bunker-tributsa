@@ -532,16 +532,17 @@ body.is-memory .site-cables { opacity: 0; }
 .contact { text-align: center; background: radial-gradient(ellipse at 50% 100%, rgba(26, 74, 90, 0.35), transparent 60%); }
 .contact__inner { display: flex; flex-direction: column; align-items: center; }
 .contact .section__title { text-transform: none; letter-spacing: 0.04em; }
-.socials { display: flex; gap: 20px; margin: 0 0 48px; padding: 0; list-style: none; }
+.socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin: 0 0 48px; padding: 0; list-style: none; }
 .socials__link {
-  display: flex; align-items: center; justify-content: center;
-  width: 64px; height: 64px;
-  border: 1px solid var(--teal-light); border-radius: 50%;
-  color: var(--teal-light);
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 8px 20px 8px 8px;
+  border: 1px solid var(--line); border-radius: 999px;
+  color: var(--text); font-size: 16px; font-weight: 500; letter-spacing: 0.02em; text-decoration: none;
   transition: color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
-.socials__link svg { width: 30px; height: 30px; fill: currentColor; }
+.socials__icon { flex: none; width: 40px; height: 40px; display: block; filter: saturate(0.75); transition: filter 0.3s, transform 0.3s; }
 .socials__link:hover, .socials__link:focus-visible { color: var(--amber); border-color: var(--amber); box-shadow: 0 0 22px var(--amber-soft); }
+.socials__link:hover .socials__icon, .socials__link:focus-visible .socials__icon { filter: none; transform: scale(1.06); }
 
 /* тихий разделитель 9 → 10: метка сапёра вместо кабеля */
 .memory-divider { position: relative; height: 80px; }
